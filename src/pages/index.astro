@@ -1,8 +1,15 @@
 ---
-import Layout from "./layouts/Layout.astro";
+import BaseLayout from "./layouts/BaseLayout.astro";
 import Hello from "./components/Hello.tsx";
 ---
 
-<Layout title="ming">
-  <Hello/>
-</Layout>
+<BaseLayout title="Hello DaisyUI">
+  <div class="text-center">
+    <h1 class="text-4xl font-bold">Hello World 🚀</h1>
+    <p class="mt-4">This page uses an Astro layout + React component.</p>
+    <button class="btn btn-primary mt-6">Get Started</button>
+    <div class="mt-8 flex justify-center">
+      <Hello client:load />
+    </div>
+  </div>
+</BaseLayout>

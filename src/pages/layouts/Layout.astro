@@ -19,3 +19,24 @@ console.log(content);
     </div>
   </body>
 </html>
+
+import React, { ReactNode } from "react";
+import Navbar from "./Navbar";
+
+interface Props {
+  children: ReactNode;
+}
+
+export default function Layout({ children }: Props) {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-1 p-6">{children}</main>
+      <footer className="footer footer-center p-4 bg-base-200 text-base-content">
+        <aside>
+          <p>© 2025 MySite. Built with Astro + React + DaisyUI</p>
+        </aside>
+      </footer>
+    </div>
+  );
+}
