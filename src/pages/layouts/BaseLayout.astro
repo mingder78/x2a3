@@ -4,48 +4,82 @@ const { title = "Astro DaisyUI Sidebar Demo" } = Astro.props;
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>{title}</title>
-  </head>
-  <body class="min-h-screen">
-    <div class="drawer lg:drawer-open">
-      <!-- Toggle for mobile -->
-      <input id="sidebar-drawer" type="checkbox" class="drawer-toggle" />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
+    </head>
+    <body class="min-h-screen text-lg md:text-xl lg:text-2xl">
+        <div class="drawer lg:drawer-open">
+            <!-- Mobile drawer toggle -->
+            <input id="sidebar-drawer" type="checkbox" class="drawer-toggle" />
 
-      <!-- Main content -->
-      <div class="drawer-content flex flex-col">
-        <!-- Top bar with menu button on mobile -->
-        <div class="w-full navbar bg-base-200 lg:hidden">
-          <label for="sidebar-drawer" class="btn btn-ghost">
-            ☰
-          </label>
-          <span class="ml-2 font-bold text-xl">{title}</span>
+            <!-- Main content -->
+            <div class="drawer-content flex flex-col">
+               <!-- Top navbar (mobile only) -->
+            <div class="w-full navbar bg-base-200 lg:hidden h-20 px-4">
+                <label
+                    for="sidebar-drawer"
+                    class="btn btn-ghost h-full w-16 flex items-center justify-center"
+                    aria-label="Open Menu"
+                >
+                    <!-- Heroicons menu icon -->
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-10 w-10"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </label>
+                <span class="ml-4 font-bold text-2xl">{title}</span>
+            </div>
+
+                <main class="p-6 flex-1">
+                    <slot />
+                </main>
+
+                <footer
+                    class="footer footer-center p-4 bg-base-200 text-base-content text-sm md:text-base"
+                >
+                    <p>© 2025 MySite. Built with Astro + React + DaisyUI</p>
+                </footer>
+            </div>
+
+            
+
+            <!-- Sidebar navigation -->
+            <div class="drawer-side">
+                <label for="sidebar-drawer" class="drawer-overlay"></label>
+                <aside
+                    class="menu p-4 w-64 bg-base-100 text-base-content min-h-full"
+                >
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6">MySite</h2>
+                    <ul class="menu">
+                        <li>
+                            <a
+                                class="text-lg sm:text-xl md:text-2xl lg:text-3xl"
+                                href="/">Home</a>
+                        </li>
+                        <li>
+                            <a
+                                class="text-lg sm:text-xl md:text-2xl lg:text-3xl"
+                                href="/about">About</a>
+                        </li>
+                        <li>
+                            <a
+                                class="text-lg sm:text-xl md:text-2xl lg:text-3xl"
+                                href="/contact">Contact</a>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
         </div>
-
-        <main class="p-6 flex-1">
-          <slot />
-        </main>
-
-        <footer class="footer footer-center p-4 bg-base-200 text-base-content">
-          <aside>
-            <p>© 2025 MySite. Built with Astro + React + DaisyUI</p>
-          </aside>
-        </footer>
-      </div>
-
-      <!-- Sidebar navigation -->
-      <div class="drawer-side">
-        <label for="sidebar-drawer" class="drawer-overlay"></label>
-        <aside class="menu p-4 w-64 bg-base-100 text-base-content min-h-full">
-          <h2 class="text-2xl font-bold mb-6">MySite</h2>
-          <ul class="menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-          </ul>
-        </aside>
-      </div>
-    </div>
-  </body>
+    </body>
 </html>

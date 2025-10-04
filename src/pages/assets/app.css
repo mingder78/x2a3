@@ -2,3 +2,32 @@
 @plugin "daisyui" {
     themes: all;
 }
+
+/* Make base font bigger on mobile and scale up on larger screens */
+html {
+  font-size: 18px; /* base font for mobile */
+}
+
+@media (min-width: 640px) { /* sm */
+  html {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 768px) { /* md */
+  html {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1024px) { /* lg */
+  html {
+    font-size: 21px;
+  }
+}
+
+@media (min-width: 1280px) { /* xl */
+  html {
+    font-size: 22px;
+  }
+}
