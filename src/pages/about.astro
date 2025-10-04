@@ -1,0 +1,14 @@
+---
+import Counter from "./components/Counter.tsx";
+import Carousel from "./components/Carousel.tsx";
+import BaseLayout from "./layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <h1>Counter Example</h1>
+  <Counter client:load>
+    <p>This is a counter component!</p>
+  </Counter>
+  <h1 class="mt-12">Carousel Example</h1>
+  <Carousel client:load />
+</BaseLayout>
