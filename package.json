@@ -1,7 +1,7 @@
 {
   "name": "x2a3",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -19,5 +19,9 @@
     "react-dom": "^19.1.0",
     "swr": "^2.3.3",
     "tailwindcss": "^4.1.4"
+  },
+  "devDependencies": {
+    "prettier": "3.6.2",
+    "prettier-plugin-astro": "0.14.1"
   }
 }
