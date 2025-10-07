@@ -1,5 +1,5 @@
 ---
-import "../assets/app.css";
+import "../../assets/app.css";
 const { content } = Astro.props;
 console.log(content);
 ---
@@ -10,11 +10,14 @@ console.log(content);
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>title</title>
-    <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"
+    ></script>
   </head>
   <body>
     <div class="grid place-items-center h-screen content-center">
-      <button data-toggle-theme="cupcake,cyberpunk" data-act-class="ACTIVECLASS">👉 switch themes</button>
+      <button data-toggle-theme="cupcake,cyberpunk" data-act-class="ACTIVECLASS"
+        >👉 switch themes</button
+      >
       <slot />
     </div>
   </body>
