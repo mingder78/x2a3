@@ -1,7 +1,7 @@
 {
   "name": "x2a3",
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -18,7 +18,7 @@
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "astro": "5.14.1",
-    "daisyui": "^5.0.28",
+    "daisyui": "^5.1.28",
     "elysia": "^1.4.9",
     "graphql-request": "^7.2.0",
     "react": "^19.1.0",

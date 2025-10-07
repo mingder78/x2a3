@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>React useRef Demo (no build)</title>
+    <!-- React UMD builds -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      const { useState, useRef } = React;
+
+      function CounterDemo() {
+        const [stateCount, setStateCount] = useState(0);
+        const refCount = useRef(0);
+        const renderCount = useRef(0);
+        renderCount.current++;
+
+        return React.createElement(
+          "div",
+          { style: { fontFamily: "sans-serif", padding: 20 } },
+          React.createElement("h3", null, "React useRef vs useState"),
+          React.createElement("p", null, "Render count: " + renderCount.current),
+
+          React.createElement(
+            "div",
+            null,
+            React.createElement("strong", null, "useState counter: "),
+            stateCount,
+            " ",
+            React.createElement(
+              "button",
+              { onClick: () => setStateCount(stateCount + 1) },
+              "+1 (useState)"
+            )
+          ),
+
+          React.createElement(
+            "div",
+            { style: { marginTop: 10 } },
+            React.createElement("strong", null, "useRef counter: "),
+            refCount.current,
+            " ",
+            React.createElement(
+              "button",
+              {
+                onClick: () => {
+                  refCount.current++;
+                  console.log("refCount =", refCount.current);
+                },
+              },
+              "+1 (useRef)"
+            )
+          ),
+
+          React.createElement(
+            "p",
+            { style: { marginTop: 20, color: "#777" } },
+            "🧠 Notice: useState triggers re-render; useRef doesn’t. See useRef changed in console."
+          )
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(React.createElement(CounterDemo));
+    </script>
+  </body>
+</html>
+
