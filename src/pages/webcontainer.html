@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Sandbox</title>
+  <style>
+    body { font-family: sans-serif; display: flex; gap: 20px; }
+    textarea { width: 400px; height: 300px; }
+    iframe { width: 400px; height: 300px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <!-- Editable code -->
+  <textarea id="code">
+<div id="root"></div>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script>
+const {useState} = React;
+function App(){
+  const [c,s]=useState(0);
+  return React.createElement('div',null,
+    React.createElement('h1',null,'Count: '+c),
+    React.createElement('button',{onClick:()=>s(c+1)},'+'),
+    React.createElement('button',{onClick:()=>s(c-1)},'-')
+  )
+}
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App))
+</script>
+  </textarea>
+
+  <!-- Preview iframe -->
+  <iframe id="preview"></iframe>
+
+  <script>
+    const textarea = document.getElementById('code');
+    const iframe = document.getElementById('preview');
+
+    function updateIframe() {
+      const doc = iframe.contentDocument || iframe.contentWindow.document;
+      doc.open();
+      doc.write(textarea.value);
+      doc.close();
+    }
+
+    // Initial render
+    updateIframe();
+
+    // Update on typing
+    textarea.addEventListener('input', updateIframe);
+  </script>
+</body>
+</html>
+
