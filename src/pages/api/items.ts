@@ -2,26 +2,20 @@
 import { request, gql } from 'graphql-request';
 
 export async function GET() {
-  const endpoint = 'https://countries.trevorblades.com';
+  const endpoint = 'https://node.cyberfly.io/graphql';
 
   // 定義 GraphQL 查詢
   const query = gql`
     query {
-      countries {
-        code
-        name
-        capital
-        continent {
-          name
-        }
-      }
+     nodeInfo {
+    peerId }
     }
   `;
 
   try {
     // 發送 GraphQL 請求
     const data = await request(endpoint, query);
-
+console.log(data)
     // 回傳 JSON 格式的回應
     return new Response(JSON.stringify({ countries: data.countries }), {
       status: 200,
